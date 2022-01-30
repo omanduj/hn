@@ -42,9 +42,7 @@ correctness. This would start leaning more towards the back end of the applicati
 doing. If I had another week I would focus on building out the application more. I would first add some form of data storage,
 possibly a NoSQL database to allow for increased flexibility. After that I would add features such as a notification whether a
 user answered correctly, an option to store a question they thought was interesting or important, a feature that allows them to
-skip/return to a question and a way to track how many questions are left in the quiz. Once I hit the month mark I would look to
-build out the entire application, from home screen to features independent of quizzes. I would also look into using some form on
-containers to maintain consistency across operating systems and look into deployment.
+skip/return to a question, a way to track how many questions are left in the quiz and possibly add more animations. Once I hit the month mark I would look to build out the entire application, from home screen to features independent of quizzes. I would also look into using some form on containers to maintain consistency across operating systems and look into deployment.
  
 3. I would first approach the issue by identifying the urgency, importance, and time each task would take. I would place the
 following on top priority:
