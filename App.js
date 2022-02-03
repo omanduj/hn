@@ -1,9 +1,35 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, SafeAreaView, Image, Button, TouchableOpacity } from 'react-native';
 import { Card } from 'react-native-paper';
+import quiz_screen from '.components/quiz_menu.js'
 
-export default function App() {
-  const handlePressA = () => console.log("Option A Pressed");
+
+const question = (props) => {
+    return (
+      <View style={{alignItems: 'center'}}>
+        <Text style={styles.top_heading}>Quiz: {props.quiz_title}</Text>
+        <Text style={styles.heading}>{props.quiz_question}</Text>
+      </View>
+    );
+}
+
+const answers = (props) => {
+  return (
+    <Card style={styles.options}>
+      <Card.Content>
+        <TouchableOpacity onPress={handlePressA}>  
+          <Text style={styles.button_text}>{props.question_letter}</Text>
+          <Text style={styles.button_text_content}>{props.question_response}</Text>
+        </TouchableOpacity>
+      </Card.Content>
+    </Card>
+  )
+}
+
+
+export default function App(answer_response) {
+
+  const handlePressA = () => console.log(answer_response);
   const handlePressB = () => console.log("Option B Pressed");
   const handlePressC = () => console.log("Option C Pressed");
   const handlePressD = () => console.log("Option D Pressed");
@@ -15,7 +41,7 @@ export default function App() {
       <View style={{backgroundColor: 'black', flex: 1, marginBottom: '-30%'}}>
 
           <SafeAreaView style={styles.container}>
-            <Text style={styles.top_heading}>Quiz: Private Keys</Text>
+            {/* <Text style={styles.top_heading}>Quiz: Private Keys</Text> */}
             <View style={styles.submitButton}>
               <Button color="white" title='X' onPress={exit_button}></Button>
             </View>
@@ -26,12 +52,17 @@ export default function App() {
             <Text style={styles.quiz_tag}>
               Quiz
             </Text>
-            <Text style={styles.heading}>
+
+            <question quiz_title='Quiz: Private Keys' quiz_question='What is the purpose of'/>
+            <question quiz_question='the private key?'/>
+
+            {/* <Text style={styles.heading}>
               What is the purpose of 
             </Text> 
             <Text style={styles.heading}>
              the private key?
-            </Text>
+            </Text> */}
+
           </View>
           
       </View>
@@ -41,7 +72,12 @@ export default function App() {
               SELECT A CHOICE
             </Text>
             
-            <Card style={styles.options}>
+            <answers question_letter="A" question_response="Steal Tacos"/>
+            <answers question_letter="B" question_response="Sign Transactions"/>
+            <answers question_letter="C" question_response="Get Free Bagel's"/>
+            <answers question_letter="D" question_response="Marry Adam Holmes"/>
+
+            {/* <Card style={styles.options}>
               <Card.Content>
                 <TouchableOpacity onPress={handlePressA}>
                   <Text style={styles.button_text}>A</Text>
@@ -76,7 +112,7 @@ export default function App() {
                   <Text style={styles.button_text_content}>Marry Adam Holmes</Text>
                 </TouchableOpacity>
               </Card.Content>
-            </Card>
+            </Card> */}
       </View>
 
     </View>
